@@ -1,0 +1,25 @@
+<app-toolbar [title]="(title$ | async) ?? ''">
+  <button
+    (click)="sidenavRef.sidenav.toggle()"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    type="button"
+    menu
+  >
+    <mat-icon aria-label="Side nav toggle icon">
+      {{ sidenavRef.sidenav.opened ? "menu_open" : "menu" }}
+    </mat-icon>
+  </button>
+</app-toolbar>
+
+<app-sidenav #sidenavRef="sidenav">
+  <app-navigation
+    (linkClicked)="onLinkClicked($event, sidenavRef.sidenav)"
+    [links]="navLinks"
+    navigation
+  ></app-navigation>
+
+  <div class="p-16" router>
+    <router-outlet></router-outlet>
+  </div>
+</app-sidenav>

@@ -1,0 +1,14 @@
+@import "./mixins";
+
+// Margins
+@include spacing(".mt-", "margin-top");
+@include spacing(".mr-", "margin-right");
+@include spacing(".mb-", "margin-bottom");
+@include spacing(".ml-", "margin-left");
+@include spacing(".m-", "margin");
+// Paddings
+@include spacing(".pt-", "padding-top");
+@include spacing(".pr-", "padding-right");
+@include spacing(".pb-", "padding-bottom");
+@include spacing(".pl-", "padding-left");
+@include spacing(".p-", "padding");

@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <ng-content select="[menu]"></ng-content>
+    <span class="pl-8">{{ title }}</span>
+
+    <span class="flex-spacer"></span>
+    <ng-content select="[options]"></ng-content>
+  </mat-toolbar-row>
+</mat-toolbar>

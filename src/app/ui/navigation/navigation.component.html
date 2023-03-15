@@ -1,0 +1,15 @@
+<mat-nav-list>
+  <a
+    mat-list-item
+    *ngFor="let link of links"
+    (click)="onLinkClicked(link.label)"
+    [routerLink]="link.href"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
+    #rla="routerLinkActive"
+    [activated]="rla.isActive"
+  >
+    <mat-icon aria-hidden="false" matListItemIcon>{{ link.icon }}</mat-icon>
+    <span matListItemTitle>{{ link.label }}</span>
+  </a>
+</mat-nav-list>

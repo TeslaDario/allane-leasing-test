@@ -1,0 +1,14 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    [fixedInViewport]="false"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <!-- Sidenav -->
+    <ng-content select="[navigation]"></ng-content>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Main Content -->
+    <ng-content select="[router]"></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

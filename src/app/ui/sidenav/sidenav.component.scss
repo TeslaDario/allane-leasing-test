@@ -1,0 +1,9 @@
+@import "../../../styles/variables";
+
+.mat-drawer-container {
+  height: calc(100% - $toolbarHeight);
+}
+
+.mat-drawer {
+  width: 220px;
+}

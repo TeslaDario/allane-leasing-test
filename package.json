@@ -1,20 +1,38 @@
 {
-  "name": "webapp",
+  "name": "ngwebapp",
   "version": "0.0.0",
+  "description": "Web application - Angular",
+  "main": "index.html",
+  "homepage": "https://github.com/TeslaDario",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TeslaDario"
+  },
+  "author": {
+    "name": "Dario Dragisic",
+    "email": "dado.dsa@gmail.com",
+    "phone-BA": "+387 (0)65 360 160",
+    "phone-DE": "+49 (0)1512 203 2684",
+    "url": "https://www.linkedin.com/in/dario-dragisic",
+    "xing": "https://www.xing.com/profile/Dario_Dragisic/cv"
+  },
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production && lite-server --baseDir=dist/ngwebapp",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^15.1.0",
+    "@angular/cdk": "^15.2.2",
     "@angular/common": "^15.1.0",
     "@angular/compiler": "^15.1.0",
     "@angular/core": "^15.1.0",
     "@angular/forms": "^15.1.0",
+    "@angular/material": "^15.2.2",
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
@@ -33,6 +51,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "lite-server": "^2.6.1",
+    "ng-packagr": "^15.1.0",
     "typescript": "~4.9.4"
   }
 }

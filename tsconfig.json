@@ -11,6 +11,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "@ngwebapp/core": ["src/app/core/index.ts"],
+      "@ngwebapp/home": ["src/app/home/index.ts"],
+      "@ngwebapp/dashboard": ["src/app/dashboard/index.ts"],
+      "@ngwebapp/ui": ["src/app/ui/index.ts"]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
