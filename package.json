@@ -23,7 +23,8 @@
     "start": "ng serve",
     "build": "ng build --configuration production && lite-server --baseDir=dist/ngwebapp",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "openapi-generate:client": "npx ts-node ./tools/openapi-generate-client.ts"
   },
   "dependencies": {
     "@angular/animations": "^15.1.0",

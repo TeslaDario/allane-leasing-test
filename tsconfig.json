@@ -13,6 +13,7 @@
     "sourceMap": true,
     "paths": {
       "@ngwebapp/core": ["src/app/core/index.ts"],
+      "@ngwebapp/api": ["src/app/openapi/index.ts"],
       "@ngwebapp/home": ["src/app/home/index.ts"],
       "@ngwebapp/dashboard": ["src/app/dashboard/index.ts"],
       "@ngwebapp/ui": ["src/app/ui/index.ts"]
@@ -25,10 +26,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
