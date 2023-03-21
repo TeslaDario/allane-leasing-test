@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from './material.module';
 import { TableComponent } from './table/table.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   imports: [RouterModule, CommonModule, MaterialModule],
@@ -17,6 +18,7 @@ import { TableComponent } from './table/table.component';
     NavigationComponent,
     ToolbarComponent,
     TableComponent,
+    ConfirmDialogComponent,
   ],
   exports: [
     // Components
@@ -24,6 +26,7 @@ import { TableComponent } from './table/table.component';
     NavigationComponent,
     ToolbarComponent,
     TableComponent,
+    ConfirmDialogComponent,
 
     // Modules
     MaterialModule,
