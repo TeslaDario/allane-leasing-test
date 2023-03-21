@@ -1,0 +1,49 @@
+<form class="flex-column p-16" (submit)="onSubmit($event)">
+  <mat-form-field appearance="outline">
+    <mat-label>Monthly Rate</mat-label>
+    <input
+      matInput
+      placeholder="Enter monthly rate"
+      [(ngModel)]="monthlyRate"
+      name="monthlyRate"
+      required
+      type="number"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Customers</mat-label>
+    <mat-select [(ngModel)]="customer" name="customers" required>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let customer of customers" [value]="customer.id">
+        {{ customer.firstName }} {{ customer.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Vehicles</mat-label>
+    <mat-select [(ngModel)]="vehicle" name="vehicles" required>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
+        {{ vehicle.brand }} {{ vehicle.model }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div>
+    <div class="flex-end mb-20">
+      <button
+        mat-raised-button
+        type="reset"
+        color="warn"
+        class="mr-20"
+        mat-dialog-close
+      >
+        Cancel
+      </button>
+
+      <button mat-raised-button type="submit" color="primary">Create</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,19 @@
+<button
+  class="mb-20"
+  mat-raised-button
+  color="primary"
+  (click)="openCreateDialog()"
+>
+  Add
+</button>
+
+<app-table
+  [data]="tableData.data"
+  [page]="tableData.page"
+  [size]="tableData.size"
+  [total]="tableData.total"
+  [loading]="loading"
+  (pageEvent)="handlePageEvent($event)"
+  (rowClick)="handleRowClick($event)"
+  (rowDelete)="handleRowDelete($event)"
+></app-table>

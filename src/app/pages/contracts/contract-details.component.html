@@ -1,0 +1,84 @@
+<div class="mat-elevation-z4 p-16">
+  <div class="loading-shade" *ngIf="loading">
+    <mat-spinner [diameter]="44"></mat-spinner>
+  </div>
+
+  <ng-container *ngIf="contract">
+    <div class="detail p-8">
+      <strong>Contract no</strong>
+      <h2>{{ contract.id }}</h2>
+    </div>
+
+    <div class="detail p-8">
+      <strong>Monthly rate</strong>
+      <span>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            placeholder="Enter monthly rate"
+            [(ngModel)]="editedContract.monthlyRate"
+            name="monthlyRate"
+            type="number"
+            required
+          />
+          <mat-icon matSuffix>euro</mat-icon>
+        </mat-form-field>
+      </span>
+    </div>
+
+    <div class="detail p-8">
+      <strong>Customer</strong>
+      <span>
+        {{ contract.customer.firstName }}
+        {{ contract.customer.lastName }}
+      </span>
+      <button
+        mat-icon-button
+        color="accent"
+        [routerLink]="['/customers', contract.customer.id]"
+      >
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </div>
+
+    <div class="detail p-8">
+      <strong>Vehicle</strong>
+      <span>
+        {{ contract.vehicle.brand }}
+        {{ contract.vehicle.model }}
+        ({{ contract.vehicle.modelYear }})
+        <br />
+        VIN: {{ contract.vehicle.vin }}
+      </span>
+      <button
+        mat-icon-button
+        color="accent"
+        [routerLink]="['/vehicles', contract.vehicle.id]"
+      >
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </div>
+
+    <div class="flex-end mb-20">
+      <button
+        mat-raised-button
+        type="reset"
+        color="warn"
+        class="mr-20"
+        routerLink="/contracts"
+      >
+        Close
+      </button>
+
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="!hasDifferences()"
+        (click)="update()"
+      >
+        Update
+      </button>
+    </div>
+  </ng-container>
+</div>
