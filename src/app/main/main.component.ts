@@ -27,12 +27,12 @@ export class MainComponent {
     {
       label: 'Customers',
       href: '/customers',
-      icon: 'dashboard',
+      icon: 'people',
     },
     {
       label: 'Vehicles',
       href: '/vehicles',
-      icon: 'dashboard',
+      icon: 'directions_car',
     },
   ];
 
