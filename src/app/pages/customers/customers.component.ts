@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { SiteTitleService } from '@ngwebapp/core';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: 'dashboard.component.html',
+  selector: 'app-customers',
+  templateUrl: 'customers.component.html',
 })
-export class DashboardComponent implements OnInit {
+export class CustomersComponent implements OnInit {
   constructor(private siteTitleService: SiteTitleService) {
-    this.siteTitleService.setSiteTitle('Dashboard');
+    this.siteTitleService.setSiteTitle('Customers');
   }
 
   ngOnInit() {}

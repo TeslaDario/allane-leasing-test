@@ -9,18 +9,27 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: 'home',
+        path: 'customers',
         loadChildren: () =>
-          import('../home/home.module').then((m) => m.HomeModule),
-      },
-      {
-        path: 'dashboard',
-        loadChildren: () =>
-          import('../dashboard/dashboard.module').then(
-            (m) => m.DashboardModule
+          import('../pages/customers/customers.module').then(
+            (m) => m.CustomersModule
           ),
       },
-      { path: '**', redirectTo: '/home' },
+      {
+        path: 'vehicles',
+        loadChildren: () =>
+          import('../pages/vehicles/vehicles.module').then(
+            (m) => m.VehiclesModule
+          ),
+      },
+      {
+        path: 'contracts',
+        loadChildren: () =>
+          import('../pages/contracts/contracts.module').then(
+            (m) => m.ContractsModule
+          ),
+      },
+      { path: '**', redirectTo: '/contracts' },
     ],
   },
 ];

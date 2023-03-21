@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { filter, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { SiteTitleService } from '@ngwebapp/core';
 import { ILink } from '@ngwebapp/ui';
 
@@ -13,15 +13,25 @@ export class MainComponent {
   title$: Observable<string> = this.siteTitleService.getSiteTitleObserver();
 
   navLinks: ILink[] = [
+    // {
+    //   label: 'Home',
+    //   href: '/home',
+    //   icon: 'home',
+    //   exact: true,
+    // },
     {
-      label: 'Home',
-      href: '/home',
-      icon: 'home',
-      exact: true,
+      label: 'Contracts',
+      href: '/contracts',
+      icon: 'dashboard',
     },
     {
-      label: 'Dashboard',
-      href: '/dashboard',
+      label: 'Customers',
+      href: '/customers',
+      icon: 'dashboard',
+    },
+    {
+      label: 'Vehicles',
+      href: '/vehicles',
       icon: 'dashboard',
     },
   ];

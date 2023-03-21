@@ -14,9 +14,10 @@
     "paths": {
       "@ngwebapp/core": ["src/app/core/index.ts"],
       "@ngwebapp/api": ["src/app/openapi/index.ts"],
-      "@ngwebapp/home": ["src/app/home/index.ts"],
-      "@ngwebapp/dashboard": ["src/app/dashboard/index.ts"],
-      "@ngwebapp/ui": ["src/app/ui/index.ts"]
+      "@ngwebapp/ui": ["src/app/ui/index.ts"],
+      "@ngwebapp/vehicles": ["src/app/pages/vehicles/index.ts"],
+      "@ngwebapp/customers": ["src/app/pages/customers/index.ts"],
+      "@ngwebapp/contracts": ["src/app/pages/contracts/index.ts"]
     },
     "declaration": false,
     "downlevelIteration": true,
