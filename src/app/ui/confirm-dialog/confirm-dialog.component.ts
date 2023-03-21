@@ -14,7 +14,7 @@ export type ConfirmDialogResult = 'confirm' | 'cancel';
 })
 export class ConfirmDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<ConfirmDialogComponent>,
+    public dialogRef: MatDialogRef<ConfirmDialogComponent, ConfirmDialogResult>,
     @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogData
   ) {}
 
