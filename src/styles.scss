@@ -37,5 +37,5 @@ body {
 
 // mat-overlay
 .cdk-overlay-pane {
-  min-width: 230px;
+  width: clamp(230px, 70%, 600px);
 }
