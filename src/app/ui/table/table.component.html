@@ -1,0 +1,54 @@
+<div *ngIf="!dataSource.data.length">No data</div>
+
+<div class="table-container mat-elevation-z8" *ngIf="dataSource.data.length">
+  <div class="loading-shade" *ngIf="loading">
+    <mat-spinner [diameter]="44"></mat-spinner>
+  </div>
+
+  <table mat-table [dataSource]="dataSource">
+    <!-- Columns -->
+    <ng-container
+      *ngFor="let column of displayedColumns"
+      matColumnDef="{{ column }}"
+    >
+      <th mat-header-cell *matHeaderCellDef>
+        {{ column }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <ng-container
+          [ngTemplateOutlet]="
+            column !== 'actions' ? rowColumnTemp : actionsTemp
+          "
+          [ngTemplateOutletContext]="{ row: row, column: column }"
+        ></ng-container>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="rowClick.emit(row)"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    [length]="total"
+    [pageSize]="size"
+    (page)="pageEvent.emit($event)"
+    [pageSizeOptions]="[10, 50, 100]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+
+<ng-template #rowColumnTemp let-row="row" let-column="column">
+  {{ row[column] }}
+</ng-template>
+
+<ng-template #actionsTemp let-row="row">
+  <button mat-icon-button color="warn" (click)="onDelete($event, row)">
+    <mat-icon>delete</mat-icon>
+  </button>
+</ng-template>

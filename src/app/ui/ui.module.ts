@@ -8,15 +8,22 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from './material.module';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   imports: [RouterModule, CommonModule, MaterialModule],
-  declarations: [SidenavComponent, NavigationComponent, ToolbarComponent],
+  declarations: [
+    SidenavComponent,
+    NavigationComponent,
+    ToolbarComponent,
+    TableComponent,
+  ],
   exports: [
     // Components
     SidenavComponent,
     NavigationComponent,
     ToolbarComponent,
+    TableComponent,
 
     // Modules
     MaterialModule,
