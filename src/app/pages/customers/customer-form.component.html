@@ -1,0 +1,49 @@
+<form
+  [formGroup]="form"
+  class="flex-column mat-elevation-z4 p-16 mb-20"
+  (submit)="onSubmit()"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>First name</mat-label>
+    <input matInput placeholder="Enter vin" formControlName="firstName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last name</mat-label>
+    <input matInput placeholder="Enter vin" formControlName="lastName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" (click)="picker.open()">
+    <mat-label>Birth date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="birthDate"
+      readonly
+      placeholder="MM/DD/YYYY"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+  </mat-form-field>
+
+  <div class="flex-end mb-20">
+    <button
+      mat-raised-button
+      type="reset"
+      color="warn"
+      class="mr-20"
+      (click)="close()"
+    >
+      Cancel
+    </button>
+
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      [disabled]="!form.valid"
+    >
+      {{ mode === "new" ? "Create" : "Update" }}
+    </button>
+  </div>
+</form>

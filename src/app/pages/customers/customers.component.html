@@ -1,0 +1,14 @@
+<button class="mb-20" mat-raised-button color="primary" routerLink="new">
+  Add
+</button>
+
+<app-table
+  [data]="tableData.data"
+  [page]="tableData.page"
+  [size]="tableData.size"
+  [total]="tableData.total"
+  [loading]="loading"
+  (pageEvent)="handlePageEvent($event)"
+  (rowClick)="handleRowClick($event)"
+  (rowDelete)="handleRowDelete($event)"
+></app-table>
