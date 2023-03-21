@@ -1,0 +1,74 @@
+<form
+  [formGroup]="form"
+  class="flex-column mat-elevation-z4 p-16 mb-20"
+  (submit)="onSubmit()"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>Brand</mat-label>
+    <mat-select formControlName="brand" [compareWith]="compareFn">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let brand of brands$ | async" [value]="brand.id">
+        {{ brand.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Model</mat-label>
+    <mat-select formControlName="model" [compareWith]="compareFn">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let model of models$ | async" [value]="model.id">
+        {{ model.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Year</mat-label>
+    <input
+      matInput
+      placeholder="Enter year"
+      formControlName="year"
+      type="number"
+      [min]="minYear"
+      [max]="maxYear"
+      step="1"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>VIN</mat-label>
+    <input matInput placeholder="Enter vin" formControlName="vin" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>PRICE</mat-label>
+    <input
+      matInput
+      placeholder="Enter price"
+      formControlName="price"
+      type="number"
+    />
+  </mat-form-field>
+
+  <div class="flex-end mb-20">
+    <button
+      mat-raised-button
+      type="reset"
+      color="warn"
+      class="mr-20"
+      (click)="close()"
+    >
+      Cancel
+    </button>
+
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      [disabled]="!form.valid"
+    >
+      {{ mode === "new" ? "Create" : "Update" }}
+    </button>
+  </div>
+</form>
