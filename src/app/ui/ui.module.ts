@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { TableComponent } from './table/table.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { CapSplitPipe } from './pipes/cap-split.pipe';
 
 @NgModule({
   imports: [RouterModule, CommonModule, MaterialModule],
@@ -19,6 +20,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     ToolbarComponent,
     TableComponent,
     ConfirmDialogComponent,
+
+    CapSplitPipe,
   ],
   exports: [
     // Components
@@ -27,6 +30,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     ToolbarComponent,
     TableComponent,
     ConfirmDialogComponent,
+
+    // pipes
+    CapSplitPipe,
 
     // Modules
     MaterialModule,
