@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicle, VehicleService } from '@ngwebapp/api';
+import { ErrorResponse, Vehicle, VehicleService } from '@ngwebapp/api';
 import { SiteTitleService } from '@ngwebapp/core';
 import { Subject, takeUntil } from 'rxjs';
 import {
@@ -12,6 +12,7 @@ import { AutoUnsubscribe } from 'ngx-auto-unsubscribe-decorator';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-vehicles',
@@ -34,7 +35,8 @@ export class VehiclesComponent implements OnInit {
     private vehicleService: VehicleService,
     private siteTitleService: SiteTitleService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackbar: MatSnackBar
   ) {
     this.siteTitleService.setSiteTitle('Vehicles');
   }
@@ -71,10 +73,21 @@ export class VehiclesComponent implements OnInit {
         this.vehicleService
           .deleteVehicle(id)
           .pipe(takeUntil(this._destroyed$))
-          .subscribe(() => {
-            this.tableData.data = this.tableData.data?.filter(
-              (d) => d.id !== id
-            );
+          .subscribe({
+            next: () =>
+              (this.tableData.data = this.tableData.data?.filter(
+                (d) => d.id !== id
+              )),
+            error: ({ error }: { error: ErrorResponse }) =>
+              this.snackbar.open(
+                `Status: ${error.status}! Message:  ${error.error}`,
+                'OK',
+                {
+                  duration: 7000,
+                  verticalPosition: 'top',
+                  horizontalPosition: 'center',
+                }
+              ),
           });
     });
   }

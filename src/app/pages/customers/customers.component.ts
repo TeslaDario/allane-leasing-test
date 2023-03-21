@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Customer, CustomerService } from '@ngwebapp/api';
+import { Customer, CustomerService, ErrorResponse } from '@ngwebapp/api';
 import { SiteTitleService } from '@ngwebapp/core';
 import {
   ConfirmDialogComponent,
@@ -35,7 +36,8 @@ export class CustomersComponent implements OnInit {
     private customerService: CustomerService,
     private siteTitleService: SiteTitleService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackbar: MatSnackBar
   ) {
     this.siteTitleService.setSiteTitle('Customers');
   }
@@ -72,10 +74,21 @@ export class CustomersComponent implements OnInit {
         this.customerService
           .deleteCustomer(id)
           .pipe(takeUntil(this._destroyed$))
-          .subscribe(() => {
-            this.tableData.data = this.tableData.data?.filter(
-              (d) => d.id !== id
-            );
+          .subscribe({
+            next: () =>
+              (this.tableData.data = this.tableData.data?.filter(
+                (d) => d.id !== id
+              )),
+            error: ({ error }: { error: ErrorResponse }) =>
+              this.snackbar.open(
+                `Status: ${error.status}! Message:  ${error.error}`,
+                'OK',
+                {
+                  duration: 7000,
+                  verticalPosition: 'top',
+                  horizontalPosition: 'center',
+                }
+              ),
           });
     });
   }
